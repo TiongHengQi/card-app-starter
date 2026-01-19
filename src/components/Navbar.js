@@ -13,6 +13,11 @@ export default function Navbar() {
           Home
         </NavLink>
       </nav>
+      <nav>
+        <NavLink to="/cards" end>
+          Cards
+        </NavLink>
+      </nav>
     </header>
   );
 }

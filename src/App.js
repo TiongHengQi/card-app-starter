@@ -14,6 +14,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/cards" element={<CardList />} />
         {/* TODO: Complete the routes */}
+        <Route path="*" element={<h1 className="not-found">Page Not Found</h1>} />
       </Routes>
     </BrowserRouter>
   );

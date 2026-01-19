@@ -25,6 +25,9 @@ export async function getCards() {
 
 export function addCard(card) {
   // TODO: implement POST /addcard
+  return fetch('${API_URL}/addcards', {
+    method: "ADD",
+  });
 }
 
 export function updateCard(id, card) {
@@ -33,4 +36,7 @@ export function updateCard(id, card) {
 
 export function deleteCard(id) {
   // TODO: implement DELETE /deletecard/:id
+  return fetch(`${API_URL}/deletecard/${id}`, {
+    method: "DELETE",
+  });
 }
