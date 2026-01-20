@@ -25,18 +25,21 @@ export async function getCards() {
 
 export function addCard(card) {
   // TODO: implement POST /addcard
-  return fetch('${API_URL}/addcards', {
-    method: "ADD",
+  return fetch(`${API_URL}/addcards`, {
+    method: "POST",
   });
 }
 
 export function updateCard(id, card) {
   // TODO: implement PUT /updatecard/:id
+  return fetch(`${API_URL}/updatecards/${id}`, {
+    method: "PUT",
+  });
 }
 
 export function deleteCard(id) {
   // TODO: implement DELETE /deletecard/:id
-  return fetch(`${API_URL}/deletecard/${id}`, {
+  return fetch(`${API_URL}/deletecards/${id}`, {
     method: "DELETE",
   });
 }

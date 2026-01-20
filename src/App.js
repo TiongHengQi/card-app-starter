@@ -13,6 +13,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cards" element={<CardList />} />
+        <Route path={"/cards/:id/edit"} element={<EditCard />} />
         {/* TODO: Complete the routes */}
         <Route path="*" element={<h1 className="not-found">Page Not Found</h1>} />
       </Routes>
