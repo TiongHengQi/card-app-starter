@@ -27,6 +27,8 @@ export function addCard(card) {
   // TODO: implement POST /addcard
   return fetch(`${API_URL}/addcards`, {
     method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(card),
   });
 }
 

@@ -18,6 +18,11 @@ export default function Navbar() {
           Cards
         </NavLink>
       </nav>
+      <nav>
+        <NavLink to="/cards/new" end>
+          Add Card
+        </NavLink>
+      </nav>
     </header>
   );
 }
