@@ -36,12 +36,14 @@ export function updateCard(id, card) {
   // TODO: implement PUT /updatecard/:id
   return fetch(`${API_URL}/updatecards/${id}`, {
     method: "PUT",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(card),
   });
 }
 
 export function deleteCard(id) {
   // TODO: implement DELETE /deletecard/:id
   return fetch(`${API_URL}/deletecards/${id}`, {
-    method: "POST",
+    method: "DELETE",
   });
 }
