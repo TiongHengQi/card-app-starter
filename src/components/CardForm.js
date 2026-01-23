@@ -16,7 +16,7 @@ export default function CardForm({
   function handleSubmit(e) {
     e.preventDefault();
     if (!busy) {
-      onSubmit();
+      onSubmit(values);
     }
   }
 
@@ -26,7 +26,7 @@ export default function CardForm({
 
       <div>
         <label htmlFor="card_name">
-          Card Name
+          Card Name: 
         </label>
         <input
           id="card_name"
@@ -41,7 +41,7 @@ export default function CardForm({
 
       <div>
         <label htmlFor="card_pic">
-          Card Image URL
+          Card Image URL: 
         </label>
         <input
           id="card_pic"
