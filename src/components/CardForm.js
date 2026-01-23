@@ -21,10 +21,10 @@ export default function CardForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} >
-      <h2 >Card Form</h2>
+    <form onSubmit={handleSubmit} className="form">
+      <h2>Card Form</h2>
 
-      <div>
+      <div className="form-grp">
         <label htmlFor="card_name">
           Card Name: 
         </label>
@@ -39,7 +39,7 @@ export default function CardForm({
         />
       </div>
 
-      <div>
+      <div className="form-grp">
         <label htmlFor="card_pic">
           Card Image URL: 
         </label>
@@ -54,7 +54,7 @@ export default function CardForm({
         />
       </div>
 
-      {error && <div>{error}</div>}
+      {error && <div className="form-error">{error}</div>}
 
       <button type="submit" disabled={busy}>
         {busy ? "Submitting..." : submitText}

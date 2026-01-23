@@ -50,16 +50,20 @@ export default function CardList() {
     }
   }
 
+  if (loading) return <main className="Center"><p>Loading...</p></main>;
+  if (!cards) return <main className="Center"><p>Card not found</p></main>;
+
   return (
     <main>
-      <div>
+      <h2 className="cardList-title">All Cards</h2>
+      <div className="card-grid">
         {cards.map((card) => (
           <Card
             key={card.id}
             card={card}
             onDelete={handleDelete}
-            busy={loading}
-            disabled={busy}
+            busy={busy}
+            error={error}
           />
         ))}
       </div>

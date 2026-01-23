@@ -4,16 +4,22 @@ export default function Card({ card, onDelete, busy }) {
   return (
     <div className="card">
       <img src={card.card_pic} alt={card.card_name} />
-      <h2>{card.card_name}</h2>
-      <p>ID: {card.id}</p>
+      <div className="text">
+        <h2>{card.card_name}</h2>
+        <p>ID: {card.id}</p>
+      </div>
+      
 
       <div className="card-actions">
-        <Link to={`/cards/${card.id}/edit`}>Edit</Link>
+        <Link to={`/cards/${card.id}/edit`} className="button-link">Edit</Link>
 
         <button
+        className="delete"
         onClick={() => {
-          console.log("Delete clicked", card.id);
-          onDelete(card);
+          if (window.confirm(`Are you sure you want to delete ${card.card_name}?`)) {
+            console.log("Delete clicked", card.id);
+            onDelete(card);
+          }
         }}
         disabled={busy}
         >

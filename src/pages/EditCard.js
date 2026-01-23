@@ -38,7 +38,7 @@ export default function EditCard() {
     setBusy(true);
     setError("");
     try {
-      const res = await updateCard(id, card);
+      await updateCard(id, card);
       navigate("/cards");
     } catch (err) {
       console.error("Failed to edit card", err);
