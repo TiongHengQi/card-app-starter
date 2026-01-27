@@ -3,17 +3,11 @@ import Card from "../components/Card";
 import { getCards, deleteCard } from "../services/api";
 
 export default function CardList() {
-  /* TODO: Complete the CardList page
-    - display a list of cards (use the Card component to display each card)
-    - delete button calling handleDelete with the card object
-    - handle loading, busy, and error states
-    - style as a grid UI */
-
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
-
+  const [visibility, setVisibility] = useState(false);
 
   async function load() {
     setLoading(true);
@@ -26,6 +20,12 @@ export default function CardList() {
     } finally {
       setLoading(false);
     }
+    const token = localStorage.getItem("token");
+    if (!token) {
+      setVisibility(false);
+    } else {
+      setVisibility(true);
+    };
   }
 
   useEffect(() => {
@@ -61,6 +61,7 @@ export default function CardList() {
           <Card
             key={card.id}
             card={card}
+            isVisible={visibility}
             onDelete={handleDelete}
             busy={busy}
             error={error}

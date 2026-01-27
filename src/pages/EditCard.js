@@ -11,6 +11,11 @@ export default function EditCard() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) navigate("/login");
+  }, [navigate]);
+
   function handleChange(e) {
     const { name, value } = e.target;
     setCard((prev) => ({ ...prev, [name]: value }));

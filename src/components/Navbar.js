@@ -1,8 +1,14 @@
-import { NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
+
 export default function Navbar() {
-  /* TODO: Complete the navbar 
-    - add links to CardList and AddCard pages 
-    - style as a navbar UI */
+  // Check if user is logged in
+  const token = localStorage.getItem("token");
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    localStorage.removeItem("token");
+    navigate("/"); // or /login
+  }
 
   return (
     <header className="NavBar">
@@ -23,6 +29,13 @@ export default function Navbar() {
         <NavLink to="/cards/new" end>
           Add Card
         </NavLink>
+      </nav>
+      <nav>
+        {token ? (
+          <button onClick={handleLogout}>Logout</button>
+        ) : (
+          <NavLink to="/login">Login</NavLink>
+        )}
       </nav>
     </header>
   );

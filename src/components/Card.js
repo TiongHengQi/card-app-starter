@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Card({ card, onDelete, busy }) {
+export default function Card({ card, isVisible, onDelete, busy }) {
   return (
     <div className="card">
       <img src={card.card_pic} alt={card.card_name} />
@@ -15,6 +15,7 @@ export default function Card({ card, onDelete, busy }) {
 
         <button
         className="delete"
+        style={{ display: isVisible ? "inline-block" : "none" }}
         onClick={() => {
           if (window.confirm(`Are you sure you want to delete ${card.card_name}?`)) {
             console.log("Delete clicked", card.id);

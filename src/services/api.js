@@ -1,20 +1,17 @@
-/**
- * API Service (Create React App)
- *
- * 1) Create `.env` at project root
- * 2) Set: REACT_APP_API_URL=https://YOUR-BACKEND.onrender.com
- * 3) Restart `npm start`
- */
 const API_URL = process.env.REACT_APP_API_URL || "";
 
-/**
- * TODO: If your backend routes differ, update the paths here.
- * Required endpoints:
- * - GET    /allcards
- * - POST   /addcard
- * - PUT    /updatecard/:id
- * - DELETE /deletecard/:id
- */
+function authHeader() {
+  const token = localStorage.getItem("token");
+  return token ? { Authorization: `Bearer ${token}` } : {};
+}
+
+export function login(credentials) {
+  return fetch(`${API_URL}/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(credentials),
+  });
+}
 
 export async function getCards() {
   // GET /allcards (provided as reference)
@@ -27,7 +24,9 @@ export function addCard(card) {
   // TODO: implement POST /addcard
   return fetch(`${API_URL}/addcards`, {
     method: "POST",
-    headers: {"Content-Type": "application/json"},
+    headers: {"Content-Type": "application/json",
+      ...authHeader(),
+    },
     body: JSON.stringify(card),
   });
 }
