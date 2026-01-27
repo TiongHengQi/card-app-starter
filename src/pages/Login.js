@@ -31,9 +31,9 @@ export default function Login() {
     return (
         <main>
             <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <input value={username} onChange={(e) => setUsername(e.target.value)} />
-                <input value={password} onChange={(e) => setPassword(e.target.value)}
+            <form onSubmit={handleSubmit} className ="form">
+                <input className="form-grp" value={username} onChange={(e) => setUsername(e.target.value) } />
+                <input className="form-grp" value={password} onChange={(e) => setPassword(e.target.value)}
                 type="password" />
                 {error ? <p style={{ color: "crimson" }}>{error}</p> : null}
                 <button disabled={busy} type="submit">{busy ? "Logging in..." : "Login"}</button>
