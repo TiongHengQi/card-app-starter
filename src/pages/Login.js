@@ -32,7 +32,7 @@ export default function Login() {
         <main>
             <h2>Login</h2>
             <form onSubmit={handleSubmit} className ="form">
-                <input className="form-grp" value={username} onChange={(e) => setUsername(e.target.value) } />
+                <input value={username} onChange={(e) => setUsername(e.target.value) } />
                 <input className="form-grp" value={password} onChange={(e) => setPassword(e.target.value)}
                 type="password" />
                 {error ? <p style={{ color: "crimson" }}>{error}</p> : null}
